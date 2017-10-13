@@ -71,13 +71,16 @@
 
         <section>
           <h2><u>Bash Help (is not man)</u></h2>
-          <p>
-            While some help docs are incomplete, (besides the 3100 line
-            man page) these are the best resources on bash (paid or free):
-          <br />
-            These documents are generally about a page long and do not go through a pager so may scroll.
-          <br />
-          </p>
+
+          <section>
+            <p>
+              While some help docs are incomplete, (besides the 3100 line
+              man page) these are the best resources on bash (paid or
+              free): <br />
+              These documents are generally about a page long and do not
+              go through a pager so may scroll. <br />
+            </p>
+          </section>
 
           <section>
             <pre><code data-trim>
@@ -281,26 +284,22 @@
             </code></pre>
 
             <p class="fragment">
-              But, really, why stop there?
+              But really, why stop there?
             </p>
   
-            <pre class="fragment">
-              <code data-trim>
-                [swilson@localhost ~]$ echo foo{0..1}{0..1}
-                foo00 foo01 foo10 foo11
-              </code>
-            </pre>
+            <pre class="fragment"><code data-trim>
+              [swilson@localhost ~]$ echo foo{0..1}{0..1}
+              foo00 foo01 foo10 foo11
+            </code></pre>
 
             <p class="fragment">
               And if you really want to fuzz stuff (I'm guessing there's a
               better way)
             </p>
 
-            <pre class="fragment">
-              <code data-trim>
-                for i in {0..255}; do eval "echo -n $'\x$i'"; done
-              </code>
-            </pre>
+            <pre class="fragment"><code data-trim>
+              for i in {0..255}; do eval "echo -n $'\x$i'"; done
+            </code></pre>
           </section>
 
           <section>
