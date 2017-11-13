@@ -84,7 +84,7 @@
 
           <section>
             <pre><code data-trim>
-              [swilson@localhost ~]$ help help | head -4
+              $ help help | head -4
               help: help [-dms] [pattern ...]
                   Display information about builtin commands.
                  
@@ -94,7 +94,7 @@
 
           <section>
             <pre><code data-trim>
-              [swilson@localhost ~]$ help [ | head -4
+              $ help [ | head -4
               [: [ arg... ]
                   Evaluate conditional expression.
                  
@@ -104,7 +104,7 @@
 
           <section>
             <pre><code data-trim>
-              [swilson@localhost ~]$ help [[ | head -4
+              $ help [[ | head -4
               [[ ... ]]: [[ expression ]]
                   Execute conditional command.
                  
@@ -114,7 +114,7 @@
 
           <section>
             <pre><code data-trim>
-              [swilson@localhost ~]$ help declare | head -4
+              $ help declare | head -4
               declare: declare [-aAfFgilnrtux] [-p] [name[=value] ...]
                   Set variable values and attributes.
                  
@@ -123,7 +123,7 @@
 
           <section>
             <pre><code data-trim>
-              [swilson@localhost ~]$ help set | head -4
+              $ help set | head -4
               set: set [-abefhkmnptuvxBCHP] [-o option-name] [--] [arg ...]
                   Set or unset values of shell options and positional parameters.
                  
@@ -132,7 +132,7 @@
 
           <section>
             <pre><code data-trim>
-              [swilson@localhost ~]$ help enable | head -4
+              $ help enable | head -4
               enable: enable [-a] [-dnps] [-f filename] [name ...]
                   Enable and disable shell builtins.
                  
@@ -141,7 +141,7 @@
 
           <section>
             <pre><code data-trim>
-              [swilson@localhost ~]$ help hash | head -4
+              $ help hash | head -4
               hash: hash [-lr] [-p pathname] [-dt] [name ...]
                   Remember or display program locations.
                   
@@ -198,9 +198,9 @@
               as well as a built-in:
             </p>
             <pre><code data-trim>
-              [swilson@localhost ~]$ type [
+              $ type [
               [ is a shell builtin
-              [swilson@localhost ~]$ whereis [
+              $ whereis [
               [: /usr/bin/[ /usr/share/man/man1/[.1.gz
             </code></pre>
           </section>
@@ -208,6 +208,20 @@
 
         <section>
           <h2><u>Expansion and itteration</u></h2>
+
+          <section>
+            <p>
+              <code data-trim>
+                {0..5}
+              </code>
+
+              <h1>&gt;</h1>
+  
+              <code data-trim>
+                $(seq 0 5)
+              </code>
+            </p>
+          </section>
 
           <section>
             <p style="color:red;">
@@ -264,9 +278,9 @@
             </p>
 
             <pre><code data-trim>
-              [swilson@localhost ~]$ echo {0..3}
+              $ echo {0..3}
               0 1 2 3
-              [swilson@localhost ~]$ seq 0 3
+              $ seq 0 3
               0
               1
               2
@@ -288,7 +302,7 @@
             </p>
   
             <pre class="fragment"><code data-trim>
-              [swilson@localhost ~]$ echo foo{0..1}{0..1}
+              $ echo foo{0..1}{0..1}
               foo00 foo01 foo10 foo11
             </code></pre>
 
@@ -311,7 +325,7 @@
             </p>
 
             <pre><code data-trim>
-              [swilson@localhost ~]$ for ((i = 0; i <= 10; i+=2)); do echo -n "$i "; done; echo
+              $ for ((i = 0; i <= 10; i+=2)); do echo -n "$i "; done; echo
               0 2 4 6 8 10
             </code></pre>
 
@@ -320,7 +334,7 @@
             </p>
 
             <pre><code data-trim>
-              [swilson@localhost ~]$ for i in $(seq 0 2 10); do echo -n "$i "; done; echo
+              $ for i in $(seq 0 2 10); do echo -n "$i "; done; echo
               0 2 4 6 8 10 
             </code></pre>
 
@@ -338,11 +352,11 @@
           </p>
 
           <pre><code data-trim>
-            [swilson@localhost ~]$ echo $((5 % 2))
+            $ echo $((5 % 2))
             1
-            [swilson@localhost ~]$ echo $((5 / 2))
+            $ echo $((5 / 2))
             2
-            [swilson@localhost ~]$ echo $((5**2))
+            $ echo $((5**2))
             25
           </code></pre>
             
@@ -351,7 +365,7 @@
           </p>
             
           <pre><code data-trim>
-            [swilson@localhost ~]$ echo $(( (5**2) < 30 ))
+            $ echo $(( (5**2) < 30 ))
             1           
           </code></pre>
         </section>
@@ -372,13 +386,13 @@
             </p>
   
             <pre><code data-trim>
-              [swilson@localhost ~]$ command -v [
+              $ command -v [
               [
-              [swilson@localhost ~]$ echo $?
+              $ echo $?
               0
-              [swilson@localhost ~]$ type [
+              $ type [
               [ is a shell builtin
-              [swilson@localhost ~]$ echo $?
+              $ echo $?
               0
             </code></pre>
           </section>
@@ -391,8 +405,8 @@
             </p>
 
             <pre><code data-trim>
-              [swilson@localhost ~]$ type blah >/dev/null 2>&1
-              [swilson@localhost ~]$ command -v blah >/dev/null
+              $ type blah >/dev/null 2>&1
+              $ command -v blah >/dev/null
             </code></pre>
 
             <p>
@@ -446,8 +460,8 @@
             </p>
 
             <pre><code data-trim>
-              [swilson@localhost ~]$ echo "echo foo" > sourced
-              [swilson@localhost ~]$ source ./sourced
+              $ echo "echo foo" > sourced
+              $ source ./sourced
               foo
             </code></pre>
           </section>
@@ -480,9 +494,9 @@
             </p>
 
             <pre><code data-trim>
-              [swilson@localhost temp]$ echo $(&lt; foo.csv)
+              $ echo $(&lt; foo.csv)
               foo,bar,baz aaa,bbb,ccc
-              [swilson@localhost temp]$ echo "$(&lt; foo.csv)"
+              $ echo "$(&lt; foo.csv)"
               foo,bar,baz
               aaa,bbb,ccc
             </code></pre>
@@ -494,10 +508,10 @@
             </p>
 
             <pre><code data-trim>
-              [swilson@localhost temp]$ mapfile -t -c 1 -C 'echo $@' &lt; foo.csv
+              $ mapfile -t -c 1 -C 'echo $@' &lt; foo.csv
               0 foo,bar,baz
               1 aaa,bbb,ccc
-              [swilson@localhost temp]$ while read line; do echo $line; done &lt; foo.csv
+              $ while read line; do echo $line; done &lt; foo.csv
               foo,bar,baz
               aaa,bbb,ccc
             </code></pre>
@@ -558,7 +572,9 @@
             </p>
 
             <pre><code data-trim>
-              [swilson@localhost temp]$ while IFS="," read -a data; do echo "${data[0]}"; done &lt; foo.csv
+              $ while IFS="," read -a data; do
+                echo "${data[0]}"
+              done &lt; foo.csv
               foo
               aaa
             </code></pre>
@@ -570,7 +586,9 @@
             </p>
 
             <pre><code data-trim>
-              [swilson@localhost temp]$ while IFS="," read -a data; do echo "${data[0]}"; done &lt;&lt;&lt; "aaa,bbb,ccc"
+              $ while IFS="," read -a data; do
+                echo "${data[0]}"
+              done &lt;&lt;&lt; "aaa,bbb,ccc"
               aaa
             </code></pre>
           </section>
@@ -607,11 +625,11 @@
             </p>
 
             <pre><code data-trim>
-              [swilson@localhost ~]$ unset f; declare f=; declare -p f
+              $ unset f; declare f=; declare -p f
               declare -- f=""
-              [swilson@localhost ~]$ unset f; declare -a f=; declare -p f
+              $ unset f; declare -a f=; declare -p f
               declare -a f='([0]="")'
-              [swilson@localhost ~]$ unset f; declare -A f=; declare -p f
+              $ unset f; declare -A f=; declare -p f
               declare -A f='([0]="" )'
             </code></pre>
           </section>
@@ -622,9 +640,9 @@
             </p>
 
             <pre><code data-trim>
-              [swilson@localhost ~]$ unset f; f=; declare -p f
+              $ unset f; f=; declare -p f
               declare -- f=""
-              [swilson@localhost ~]$ unset f; f=(); declare -p f
+              $ unset f; f=(); declare -p f
               declare -a f='()'
             </code></pre>
 
@@ -640,11 +658,11 @@
             </p>
 
             <pre><code data-trim>
-              [swilson@localhost temp]$ echo "${foo[@]/a/A}"
+              $ echo "${foo[@]/a/A}"
               Aaa bbb ccc
-              [swilson@localhost temp]$ echo "${foo[@]/a*/A}"
+              $ echo "${foo[@]/a*/A}"
               A bbb ccc
-              [swilson@localhost temp]$ echo "${foo[@]/#a/A}"
+              $ echo "${foo[@]/#a/A}"
               Aaa bbb ccc
             </code></pre>
 
@@ -659,8 +677,8 @@
             </p>
 
             <pre><code data-trim>
-              [swilson@localhost ~]$ f=(foo bar baz)
-              [swilson@localhost ~]$ find -type f -name foo ${f[@]/#/-o -name }
+              $ f=(foo bar baz)
+              $ find -type f -name foo ${f[@]/#/-o -name }
             </code></pre>
           </section>
         </section>
@@ -700,11 +718,11 @@
             </p>
 
             <pre><code data-trim>
-              [swilson@localhost temp]$ _f () { whoami; }
-              [swilson@localhost temp]$ sudo bash -c "$(declare -f _f) && _f"
+              $ _f () { whoami; }
+              $ sudo bash -c "$(declare -f _f) && _f"
               root
-              [swilson@localhost temp]$ _f () { groups $1; }
-              [swilson@localhost temp]$ sudo bash -c "$(declare -f _f) && _f tuser"
+              $ _f () { groups $1; }
+              $ sudo bash -c "$(declare -f _f) && _f tuser"
               tuser : tuser
             </code></pre>
           </section>
@@ -715,8 +733,13 @@
             </p>
 
             <pre><code data-trim>
-              [swilson@localhost temp]$ func () { echo "zero [${!0}] one [${!1}] two [${!2}] three [${!3}]"; }
-              [swilson@localhost temp]$ func foo[@] i
+              $ func () { 
+                echo "zero [${!0}]" \
+                  "one [${!1}]" \
+                  "two [${!2}]" \
+                  "three [${!3}]";
+              }
+              $ func foo[@] i
               zero [] one [aaa bbb ccc] two [5] three []
             </code></pre>
           </section>
@@ -797,10 +820,25 @@
                 set +ex
               }
             </code></pre>
-  
+          </section>
+
+          <section>
+            <p>
+              Note on -e (aka errexit) - it is an old POSIX atandard
+              (since revised). Will exit when $? != 0
+            </p>
+
+            <pre><code data-trim>
+              $ unset i; i=1; (( i-- )); echo $?; (( i-- )); echo $?
+              0
+              1
+              $ set -e
+              $ unset i; i=1; (( i-- )); echo $?; (( i-- )); echo $?
+              0
+            </code></pre>
+
             <small>
-              Optionally errexit (-e) which I generally set on scripts
-              anyway
+              Maybe not the best for production?
             </small>
           </section>
 
@@ -812,7 +850,7 @@
             </p>
 
             <pre><code data-trim>
-              [swilson@localhost ~]$ declare -f f
+              $ declare -f f
               f ()
               {
                   echo
@@ -878,12 +916,12 @@
             </p>
 
             <pre><code data-trim>
-              [swilson@localhost ~]$ time for i in {0..1000}; do unset f; f="$((5+2))"; done
+              $ time for i in {0..1000}; do unset f; f="$((5+2))"; done
               
               real    0m0.037s
               user    0m0.037s
               sys     0m0.000s
-              [swilson@localhost ~]$ time for i in {0..1000}; do unset f; f="$(expr 5 + 2)"; done
+              $ time for i in {0..1000}; do unset f; f="$(expr 5 + 2)"; done
               
               real    0m5.219s
               user    0m1.582s
