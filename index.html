@@ -44,8 +44,12 @@
           <h1>Bash Patterns</h1>
           <h3>Concepts I've found useful in bash</h3>
           <p>
-          <small>By Shawn Wilson </small>
+            <small>By Shawn Wilson </small>
           </p>
+
+          <aside class="notes">
+            Ah fuck, wrong screen
+          </aside>
         </section>
 
         <section>
@@ -53,6 +57,10 @@
           <p>
             I assume some prior Unix command line experience
           </p>
+
+          <aside class="notes">
+            Disclaimer
+          </aside>
         </section>
 
         <section>
@@ -67,6 +75,10 @@
             I hope this talk shows some mechanisms you can use to write
             nicer bash scripts
           </p>
+
+          <aside class="notes">
+            Don't write shell in bash
+          </aside>
         </section>
 
         <section>
@@ -80,6 +92,11 @@
               These documents are generally about a page long and do not
               go through a pager so may scroll. <br />
             </p>
+
+            <aside class="notes">
+                Internal to bash - no pager, not in manpath<br />
+                Some examples...
+            </aside>
           </section>
 
           <section>
@@ -90,6 +107,10 @@
                  
                   Displays brief summaries of builtin commands.  If PATTERN is
             </code></pre>
+
+            <aside class="notes">
+              help's help
+            </aside>
           </section>
 
           <section>
@@ -100,6 +121,10 @@
                  
                   This is a synonym for the "test" builtin, but the last argument must
             </code></pre>
+
+            <aside class="notes">
+              shell logic's help
+            </aside>
           </section>
 
           <section>
@@ -110,6 +135,10 @@
                  
                   Returns a status of 0 or 1 depending on the evaluation of the conditional
             </code></pre>
+
+            <aside class="notes">
+              bash new logic's help
+            </aside>
           </section>
 
           <section>
@@ -119,6 +148,11 @@
                   Set variable values and attributes.
                  
                   Declare variables and give them attributes.  If no NAMEs are given,           </code></pre>
+            </code></pre>
+
+            <aside class="notes">
+              declare's help
+            </aside>
           </section>
 
           <section>
@@ -128,6 +162,11 @@
                   Set or unset values of shell options and positional parameters.
                  
                   Change the value of shell attributes and positional parameters, or           </code></pre>
+            </code></pre>
+
+            <aside class="notes">
+              shell set's help
+            </aside>
           </section>
 
           <section>
@@ -137,6 +176,11 @@
                   Enable and disable shell builtins.
                  
                   Enables and disables builtin shell commands.  Disabling allows you to           </code></pre>
+            </code></pre>
+
+            <aside class="notes">
+              bash enable - load/unload features and xs
+            </aside>
           </section>
 
           <section>
@@ -147,6 +191,10 @@
                   
                   Determine and remember the full pathname of each command NAME.  If
             </code></pre>
+
+            <aside class="notes">
+              bash command line hash management
+            </aside>
           </section>
         </section>
 
@@ -157,6 +205,10 @@
               Bash has an order of operations for when and where to look
               for stuff:
             </p>
+
+            <aside class="notes">
+              order of operation
+            </aside>
           </section>
 
           <section>
@@ -190,6 +242,10 @@
                 </small>
               </li>
             </ol>
+
+            <aside class="notes">
+              backslash (\) ignores alias
+            </aside>
           </section>
 
           <section>
@@ -203,6 +259,10 @@
               $ whereis [
               [: /usr/bin/[ /usr/share/man/man1/[.1.gz
             </code></pre>
+
+            <aside class="notes">
+              old school test should always be internal to bash
+            </aside>
           </section>
         </section>
 
@@ -221,6 +281,10 @@
                 $(seq 0 5)
               </code>
             </p>
+
+            <aside class="notes">
+              abandon seq
+            </aside>
           </section>
 
           <section>
@@ -239,6 +303,10 @@
             <p style="color:red;" class="fragment">
               NO
             </p>
+
+            <aside class="notes">
+              Any questions?
+            </aside>
           </section>
 
           <section>
@@ -253,8 +321,12 @@
             </p>
 
             <p class="fragment">
-              But what is bash doing?
+              Now what is bash doing?
             </p>
+
+            <aside class="notes">
+              the better option
+            </aside>
           </section>
 
           <section>
@@ -270,6 +342,11 @@
               In either case "words" can be combined into a word with
               quotes
             </p>
+
+            <aside class="notes">
+              define words<br />
+              IFS for read
+            </aside>
           </section>
 
           <section>
@@ -286,6 +363,10 @@
               2
               3
             </code></pre>
+
+            <aside class="notes">
+              space vs newline doesn't matter to bash
+            </aside>
           </section>
 
           <section>
@@ -314,6 +395,10 @@
             <pre class="fragment"><code data-trim>
               for i in {0..255}; do eval "echo -n $'\x$i'"; done
             </code></pre>
+
+            <aside class="notes">
+              the hotness
+            </aside>
           </section>
 
           <section>
@@ -342,6 +427,10 @@
               But I had to refer to seq's antiquated documentation for the
               later
             </small>
+
+            <aside class="notes">
+              last bad reason to think of seq
+            </aside>
           </section>
         </section>
 
@@ -365,9 +454,13 @@
           </p>
             
           <pre><code data-trim>
-            $ echo $(( (5**2) < 30 ))
+            $ echo $(( (5**2) &lt; 30 ))
             1           
           </code></pre>
+
+          <aside class="notes">
+            math - still reasons to pipe to bc
+          </aside>
         </section>
 
         <section>
@@ -378,6 +471,10 @@
               Wouldn't it be nice to know you don't have a dependency before you
               waste time running a script?
             </p>
+
+            <aside class="notes">
+              fail quick
+            </aside>
           </section>
 
           <section>
@@ -395,6 +492,10 @@
               $ echo $?
               0
             </code></pre>
+
+            <aside class="notes">
+              check for commands
+            </aside>
           </section>
 
           <section>
@@ -405,8 +506,8 @@
             </p>
 
             <pre><code data-trim>
-              $ type blah >/dev/null 2>&1
-              $ command -v blah >/dev/null
+              $ type blah &gt;/dev/null 2&gt;&1
+              $ command -v blah &gt;/dev/null
             </code></pre>
 
             <p>
@@ -414,11 +515,16 @@
             </p>
 
             <pre><code data-trim>
-              if ! command -v printf >/dev/null 2>&1; then
-                echo "We can not find the bash printf command" >&2
+              if ! command -v printf &gt;/dev/null 2&gt;&1; then
+                echo "We can not find the bash printf command" &gt;&2
                 exit 1
               fi
             </code></pre>
+
+            <aside class="notes">
+              probably no blah command<br />
+              does the right thing with built-ins
+            </aside>
           </section>
 
           <section>
@@ -433,6 +539,10 @@
               debug() function) see 
               <a href="https://github.com/ag4ve/bash-libs/blob/master/msg-handling.sh#L12">here</a>
             </p>
+
+            <aside class="notes">
+              template die()
+            </aside>
           </section>
         </section>
 
@@ -449,8 +559,13 @@
             </p>
 
             <pre><code data-trim>
-              source ~/.config/file >/dev/null 2>&1
+              source ~/.config/file &gt;/dev/null 2&gt;&1
             </code></pre>
+
+            <aside class="notes">
+              use config files - don't embed user variables the user needs
+              to edit
+            </aside>
           </section>
 
           <section>
@@ -460,10 +575,14 @@
             </p>
 
             <pre><code data-trim>
-              $ echo "echo foo" > sourced
+              $ echo "echo foo" &gt; sourced
               $ source ./sourced
               foo
             </code></pre>
+
+            <aside class="notes">
+              used to run scripts<br />
+            </aside>
           </section>
 
           <section>
@@ -473,7 +592,7 @@
                 <li>The config file should have the same level of trust as
                   the script - this does what you expect:
                   <pre><code data-trim>
-                    foo=$(rm -rf /)
+                    foo=$(rm -rf /*)
                   </code></pre>
                   Or just put the command in the file without the
                   subshell
@@ -481,6 +600,9 @@
                   getting in the way of output I want from my script
               </ul>
             </p>
+            <aside class="notes">
+              dragons
+            </aside>
           </section>
 
           <section>
@@ -500,6 +622,11 @@
               foo,bar,baz
               aaa,bbb,ccc
             </code></pre>
+
+            <aside class="notes">
+              reading a csv - we know this?<br />
+              caveat - $(&lt; alias for $(cat
+            </aside>
           </section>
 
           <section>
@@ -521,6 +648,10 @@
               and somewhat arcane (I recommand not using it unless you
               have to)
             </small>
+
+            <aside class="notes">
+              basic processing csv - more soon
+            </aside>
           </section>
         </section>
 
@@ -547,6 +678,10 @@
             <pre><code data-trim>
               [[ -z foo ]] && foo="something"
             </code></pre>
+
+            <aside class="notes">
+              old school
+            </aside>
           </section>
 
           <section>
@@ -557,6 +692,10 @@
             <pre><code data-trim>
               : "${foo:="something"}"
             </code></pre>
+
+            <aside class="notes">
+              new school
+            </aside>
           </section>
         </section>
 
@@ -578,6 +717,10 @@
               foo
               aaa
             </code></pre>
+
+            <aside class="notes">
+              line to array of cols - print an element
+            </aside>
           </section>
 
           <section>
@@ -591,6 +734,10 @@
               done &lt;&lt;&lt; "aaa,bbb,ccc"
               aaa
             </code></pre>
+
+            <aside class="notes">
+              similar from a string
+            </aside>
           </section>
 
         </section>
@@ -609,6 +756,10 @@
               Though associative arrays can be useful when you know you
               will always run on a newer bash version
             </small>
+
+            <aside class="notes">
+              variables - mainly use string and array
+            </aside>
           </section>
 
           <section>
@@ -617,6 +768,10 @@
               declare, or bash will determine the type based on how they
               are defined
             </p>
+
+            <aside class="notes">
+              define verbose or via syntax
+            </aside>
           </section>
 
           <section>
@@ -632,6 +787,10 @@
               $ unset f; declare -A f=; declare -p f
               declare -A f='([0]="" )'
             </code></pre>
+
+            <aside class="notes">
+              verbose declaration and print
+            </aside>
           </section>
 
           <section>
@@ -650,6 +809,10 @@
               It is not possible to imply an associative array -
               f='([A]="0" )' creates a string
             </small>
+
+            <aside class="notes">
+              abstract definition
+            </aside>
           </section>
 
           <section>
@@ -669,6 +832,10 @@
             <small>
               This works on all elements - not just the first
             </small>
+
+            <aside class="notes">
+              redefining array elements on the fly
+            </aside>
           </section>
 
           <section>
@@ -680,6 +847,10 @@
               $ f=(foo bar baz)
               $ find -type f -name foo ${f[@]/#/-o -name }
             </code></pre>
+
+            <aside class="notes">
+              commands with arrays
+            </aside>
           </section>
         </section>
 
@@ -710,6 +881,10 @@
             <small>
               You can't do this with an alias<br>
             </small>
+
+            <aside class="notes">
+              (generally) use functions vs aliases
+            </aside>
           </section>
 
           <section>
@@ -725,6 +900,10 @@
               $ sudo bash -c "$(declare -f _f) && _f tuser"
               tuser : tuser
             </code></pre>
+
+            <aside class="notes">
+              pretty powerful
+            </aside>
           </section>
 
           <section>
@@ -742,6 +921,10 @@
               $ func foo[@] i
               zero [] one [aaa bbb ccc] two [5] three []
             </code></pre>
+
+            <aside class="notes">
+              variables by reference - untyped
+            </aside>
           </section>
 
           <section>
@@ -759,6 +942,10 @@
               }
               foo=$(func)
             </code></pre>
+
+            <aside class="notes">
+              so slow
+            </aside>
           </section>
 
           <section>
@@ -781,6 +968,12 @@
               easier to stay away from it and declare the global outside
               the function and make sure it's in a sane state within
             </small>
+
+            <aside class="notes">
+              return from functions with globals<br />
+              a -g switch exists in newer bash<br />
+              use a naming convention
+            </aside>
           </section>
 
           <section>
@@ -802,6 +995,10 @@
               what a function should do based on that check - that
               function only gets redefined once
             </small>
+
+            <aside class="notes">
+              redefine functions
+            </aside>
           </section>
         </section>
 
@@ -820,6 +1017,10 @@
                 set +ex
               }
             </code></pre>
+
+            <aside class="notes">
+              tons of info - what bash thinks is happening and die quick
+            </aside>
           </section>
 
           <section>
@@ -840,6 +1041,10 @@
             <small>
               Maybe not the best for production?
             </small>
+
+            <aside class="notes">
+              x may die too quick
+            </aside>
           </section>
 
           <section>
@@ -850,12 +1055,17 @@
             </p>
 
             <pre><code data-trim>
-              $ declare -f f
-              f ()
+              $ declare -f echo
+              echo ()
               {
-                  echo
+                  command echo $@
               }
             </code></pre>
+
+            <aside class="notes">
+              show what bash thinks functions look like<br />
+              also can see what you are passing to a command
+            </aside>
           </section>
         </section>
 
@@ -885,6 +1095,10 @@
               alias sshn="ssh -F /dev/null"
               alias scpn="scp -F /dev/null"
             </code></pre>
+
+            <aside class="notes">
+              use device files
+            </aside>
           </section>
 
           <section>
@@ -904,6 +1118,10 @@
             <small>
               Used verbatum from the bug-bash mailing list
             </small>
+
+            <aside class="notes">
+              test different shells
+            </aside>
           </section>
 
           <section>
@@ -927,6 +1145,10 @@
               user    0m1.582s
               sys     0m3.595s
             </code></pre>
+
+            <aside class="notes">
+              benchmark
+            </aside>
           </section>
         </section>
 
